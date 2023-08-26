@@ -15,7 +15,7 @@ public class ImageConverter {
         imageDTO.setImangeId(imageEntity.getImageId());
         imageDTO.setUrl(imageEntity.getUrl());
         imageDTO.setDescription(imageEntity.getDescription());
-        return null;
+        return imageDTO;
     }
     public List<ImageDTO> toDTOs(List<ImageEntity> imageEntities){
         List<ImageDTO> imageDTOs = new ArrayList<>();

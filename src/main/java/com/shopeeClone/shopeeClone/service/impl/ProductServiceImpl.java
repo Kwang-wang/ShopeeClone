@@ -11,6 +11,7 @@ import com.shopeeClone.shopeeClone.converter.product.ProductConverter;
 import com.shopeeClone.shopeeClone.dto.CreateProductDTO;
 import com.shopeeClone.shopeeClone.dto.PageDTO;
 import com.shopeeClone.shopeeClone.dto.ProductDTO;
+import com.shopeeClone.shopeeClone.entity.ImageEntity;
 import com.shopeeClone.shopeeClone.entity.ProductEntity;
 import com.shopeeClone.shopeeClone.exeption.ValidateException;
 import com.shopeeClone.shopeeClone.repository.ProductRepository;
@@ -105,7 +106,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProductById(Long id) {
-        productRepository.findById(id).orElseThrow(() -> new ValidateException("Khong tim thay product"));
+        ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ValidateException("Khong tim thay product"));
+        List<ImageEntity> imageEntities = productEntity.getImageEntities();
+        imageService.deleteImage(imageEntities);
         productRepository.deleteById(id);
     }
 
