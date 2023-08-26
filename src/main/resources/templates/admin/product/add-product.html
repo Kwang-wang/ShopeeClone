@@ -23,7 +23,7 @@
         <h2 style="color: red;" th:if="${message != null}">
             <span th:text="${message}"></span>
         </h2>
-        <form id="addProductForm" class="addform">
+        <form id="addProductForm" class="addform" method="POST" action="/admin/products/add">
             <div class="form-group">
                 <label>Product Name: </label>
                 <input type="text" name="name" class="form-control name" placeholder="Product Name">
