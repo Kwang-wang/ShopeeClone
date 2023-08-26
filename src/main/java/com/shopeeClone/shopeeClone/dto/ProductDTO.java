@@ -18,9 +18,13 @@ public class ProductDTO {
     private String description;
     private String category;  // Sử dụng String cho category
     private String suppilier;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date createDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date modifierDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private String createBy;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
 	private String modifierBy;
     private List<ImageDTO> imageDTOs = new ArrayList<>();
     public void addImageDTO(ImageDTO imageDTO){
